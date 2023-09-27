@@ -30,9 +30,7 @@ public class PiDigits {
             throw new RuntimeException("Invalid Interval");
         }
 
-        // Calcula la cantidad de trabajo por hilo
-        int cantidad = count / number;
-        // Variable para almacenar la posición de inicio de cada hilo
+        int cantidad = count / number;  // → Calcula la cantidad de trabajo por hilo
         int inicio;
         
         for (int i = 0; i < number; i++) {
