@@ -79,7 +79,7 @@ public class PiDigits {
                 thread.conti();
             }
 
-            // Verifica si los hilos ya terminaron
+            // Verifica si los hilos ya terminaron (Si estan vivos)
             for (DigitsThread thread : threads) {
                 if (!thread.isAlive()) {
                     live = false;
