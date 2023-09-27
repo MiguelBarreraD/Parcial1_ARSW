@@ -12,9 +12,6 @@ import java.util.Scanner;
 ///  </summary>
 public class PiDigits {
 
-    
-
-    
     /**
      * Returns a range of hexadecimal digits of pi.
      * @param start The starting location of the range.
@@ -79,7 +76,7 @@ public class PiDigits {
                 thread.conti();
             }
 
-            // Verifica si los hilos ya terminaron (Si estan vivos)
+            // Verifica si los hilos ya terminaron.
             for (DigitsThread thread : threads) {
                 if (!thread.isAlive()) {
                     live = false;

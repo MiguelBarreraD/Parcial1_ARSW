@@ -2,6 +2,7 @@ package edu.eci.arsw.math;
 
 public class DigitsThread extends Thread{
 
+    
     private static int DigitsPerSum = 8;
     private static double Epsilon = 1e-17;
     private boolean paused = false;

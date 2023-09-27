@@ -15,8 +15,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String a[]) {
-
         System.out.println(PiDigits.getDigits(1, 10000, 5));
-
     }
 }
