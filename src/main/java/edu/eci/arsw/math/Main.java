@@ -6,6 +6,7 @@
 package edu.eci.arsw.math;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  *
@@ -15,7 +16,7 @@ public class Main {
 
     public static void main(String a[]) {
 
-        System.out.println(PiDigits.getDigits(1, 100, 3));
+        System.out.println(PiDigits.getDigits(1, 10000, 5));
 
     }
 }

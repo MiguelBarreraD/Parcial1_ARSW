@@ -4,7 +4,7 @@ public class DigitsThread extends Thread{
 
     private static int DigitsPerSum = 8;
     private static double Epsilon = 1e-17;
-    private boolean pause;
+    private boolean paused = false;
     private int start;
     private int count;
     private byte[] digits;
@@ -19,6 +19,18 @@ public class DigitsThread extends Thread{
         double sum = 0;
 
         for (int i = 0; i < count; i++) {
+            if (paused) {
+                try {
+                    synchronized (this) {
+                        while (paused) {
+                            System.out.println(this.getName() + " en pausa...");
+                            wait(); 
+                        }
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
             if (i % DigitsPerSum == 0) {
                 sum = 4 * sum(1, start)
                         - 2 * sum(4, start)
@@ -27,15 +39,23 @@ public class DigitsThread extends Thread{
 
                 start += DigitsPerSum;
             }
-
             sum = 16 * (sum - Math.floor(sum));
             digits[i] = (byte) sum;
         }
     }
 
-    public void pause(){
-        pause = true;
+
+    public void pause() {
+        paused = true;
     }
+
+    public void conti() {
+        synchronized (this) {
+            paused = false;
+            notify(); // Notificar al hilo que está en espera
+        }
+    }
+
     public byte[] getDigits(){
         return digits;
     }
